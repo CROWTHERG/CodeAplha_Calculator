@@ -210,3 +210,14 @@ button:active {
   position: relative;
   cursor: pointer; /* Make the toggle look clickable */
 }
+
+.attribution {
+  font-size: 13px;
+  text-align: center;
+  margin-top: 2rem;
+  color: hsl(0, 5%, 81%);
+}
+.attribution a {
+  color: white;
+  text-decoration: none;
+}
