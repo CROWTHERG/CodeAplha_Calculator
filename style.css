@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+
+:root {
+  /* Theme 1 */
+  --main-bg: hsl(222, 26%, 31%);
+  --toggle-bg: hsl(223, 31%, 20%);
+  --screen-bg: hsl(224, 36%, 15%);
+  --key-bg: hsl(225, 21%, 49%);
+  --key-shadow: hsl(224, 28%, 35%);
+  --key-text: white;
+  --key-accent-bg: hsl(6, 63%, 50%);
+  --key-accent-shadow: hsl(6, 70%, 34%);
+  --key-accent-text: white;
+  --key-secondary-bg: hsl(30, 25%, 89%);
+  --key-secondary-shadow: hsl(28, 16%, 65%);
+  --key-secondary-text: hsl(221, 14%, 31%);
+}
+
+body.theme-2 {
+  /* Theme 2 colors */
+  --main-bg: hsl(0, 0%, 90%);
+  --toggle-bg: hsl(0, 5%, 81%);
+  --screen-bg: hsl(0, 0%, 93%);
+  --key-bg: hsl(185, 42%, 37%);
+  --key-shadow: hsl(185, 58%, 25%);
+  --key-text: white;
+  --key-accent-bg: hsl(25, 98%, 40%);
+  --key-accent-shadow: hsl(25, 99%, 27%);
+  --key-accent-text: white;
+  --key-secondary-bg: hsl(45, 7%, 89%);
+  --key-secondary-shadow: hsl(35, 11%, 61%);
+  --key-secondary-text: hsl(60, 10%, 19%);
+}
+
+body.theme-3 {
+  /* Theme 3 colors */
+  --main-bg: hsl(268, 75%, 9%);
+  --toggle-bg: hsl(268, 71%, 12%);
+  --screen-bg: hsl(268, 71%, 12%);
+  --key-bg: hsl(281, 89%, 26%);
+  --key-shadow: hsl(285, 91%, 52%);
+  --key-text: white;
+  --key-accent-bg: hsl(176, 100%, 44%);
+  --key-accent-shadow: hsl(177, 92%, 70%);
+  --key-accent-text: hsl(198, 20%, 13%);
+  --key-secondary-bg: hsl(268, 47%, 21%);
+  --key-secondary-shadow: hsl(290, 70%, 36%);
+  --key-secondary-text: white;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'League Spartan', sans-serif;
+}
+
+body {
+  background-color: var(--main-bg);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 350px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.theme-label {
+  margin-right: 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+}
+
+.toggle-container {
+  position: relative;
+}
+
+.theme-numbers {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: -1.2rem;
+  left: 0;
+  width: 100%;
+  font-size: 0.7rem;
+}
+
+#theme-slider {
+  width: 80px;
+  appearance: none;
+  background: var(--toggle-bg);
+  height: 1rem;
+  border-radius: 1rem;
+  outline: none;
+  cursor: pointer;
+}
+
+#theme-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--key-accent-bg);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px var(--key-accent-shadow);
+}
+
+#theme-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--key-accent-bg);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px var(--key-accent-shadow);
+}
+
+.screen {
+  background: var(--screen-bg);
+  text-align: right;
+  font-size: 2.5rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  overflow-x: auto;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  background: var(--toggle-bg);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+button {
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  padding: 0.8rem;
+  box-shadow: 0 4px var(--key-shadow);
+  transition: all 0.1s ease;
+}
+
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px var(--key-shadow);
+}
+
+.btn {
+  background: var(--key-secondary-bg);
+  color: var(--key-secondary-text);
+}
+
+.btn-del,
+.btn-reset {
+  background: var(--key-bg);
+  color: var(--key-text);
+}
+
+.btn-equals {
+  background: var(--key-accent-bg);
+  color: var(--key-accent-text);
+}
+
+/* Mobile adjustments */
+@media (max-width: 500px) {
+  .container {
+    width: 90%;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .screen {
+    font-size: 2rem;
+  }
+
+  .keypad {
+    gap: 0.8rem;
+  }
+
+  button {
+    font-size: 1.2rem;
+  }
+}
+
+.toggle-container {
+  position: relative;
+  cursor: pointer; /* Make the toggle look clickable */
+}
