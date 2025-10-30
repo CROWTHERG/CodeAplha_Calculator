@@ -17,7 +17,6 @@
 }
 
 body.theme-2 {
-  /* Theme 2 colors */
   --main-bg: hsl(0, 0%, 90%);
   --toggle-bg: hsl(0, 5%, 81%);
   --screen-bg: hsl(0, 0%, 93%);
@@ -33,7 +32,6 @@ body.theme-2 {
 }
 
 body.theme-3 {
-  /* Theme 3 colors */
   --main-bg: hsl(268, 75%, 9%);
   --toggle-bg: hsl(268, 71%, 12%);
   --screen-bg: hsl(268, 71%, 12%);
@@ -62,6 +60,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  transition: background-color 0.4s ease;
 }
 
 .container {
@@ -114,33 +113,36 @@ h1 {
   cursor: pointer;
 }
 
-#theme-slider::-webkit-slider-thumb {
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  background: var(--key-accent-bg);
-  border-radius: 50%;
-  cursor: pointer;
-  box-shadow: 0 2px var(--key-accent-shadow);
-}
-
+#theme-slider::-webkit-slider-thumb,
 #theme-slider::-moz-range-thumb {
   width: 20px;
   height: 20px;
   background: var(--key-accent-bg);
   border-radius: 50%;
-  cursor: pointer;
   box-shadow: 0 2px var(--key-accent-shadow);
+  transition: background 0.3s ease;
+}
+
+.display {
+  background: var(--screen-bg);
+  text-align: right;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
 }
 
 .screen {
-  background: var(--screen-bg);
-  text-align: right;
   font-size: 2.5rem;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  margin-bottom: 1rem;
   overflow-x: auto;
+}
+
+.result-preview {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  margin-top: 0.5rem;
+  height: 1.2rem;
+  color: var(--key-accent-bg);
+  text-align: right;
 }
 
 .keypad {
@@ -162,9 +164,12 @@ button {
   transition: all 0.1s ease;
 }
 
-button:active {
-  transform: translateY(2px);
-  box-shadow: 0 2px var(--key-shadow);
+button:hover {
+  filter: brightness(1.1);
+}
+
+button.pressed {
+  transform: scale(0.95);
 }
 
 .btn {
@@ -204,11 +209,6 @@ button:active {
   button {
     font-size: 1.2rem;
   }
-}
-
-.toggle-container {
-  position: relative;
-  cursor: pointer; /* Make the toggle look clickable */
 }
 
 .attribution {
