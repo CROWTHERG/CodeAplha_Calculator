@@ -37,14 +37,15 @@ function handleInput(value, action) {
 }
 
 function updateScreen() {
-  screen.textContent = currentInput;
+  // Show “×” instead of “*” for display
+  screen.textContent = currentInput.replace(/\*/g, "×");
   showPreview();
 }
 
 // ✅ Real-time preview
 function showPreview() {
   try {
-    const sanitized = currentInput.replace(/x/g, "*");
+    const sanitized = currentInput.replace(/x/g, "*").replace(/×/g, "*");
     if (/[\d)][+\-*/.]+[\d(]/.test(sanitized)) {
       const result = eval(sanitized);
       preview.textContent = !isNaN(result) ? `= ${result}` : "";
@@ -59,7 +60,7 @@ function showPreview() {
 // ✅ Calculate safely
 function calculate() {
   try {
-    const result = eval(currentInput.replace(/x/g, "*"));
+    const result = eval(currentInput.replace(/x/g, "*").replace(/×/g, "*"));
     currentInput = result.toString();
   } catch {
     currentInput = "Error";
