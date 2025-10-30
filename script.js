@@ -37,15 +37,20 @@ function handleInput(value, action) {
 }
 
 function updateScreen() {
-  // Show “×” instead of “*” for display
-  screen.textContent = currentInput.replace(/\*/g, "×");
+  // Show “×” instead of “*” and “÷” instead of “/”
+  screen.textContent = currentInput
+    .replace(/\*/g, "×")
+    .replace(/\//g, "÷");
   showPreview();
 }
 
 // ✅ Real-time preview
 function showPreview() {
   try {
-    const sanitized = currentInput.replace(/x/g, "*").replace(/×/g, "*");
+    const sanitized = currentInput
+      .replace(/x/g, "*")
+      .replace(/×/g, "*")
+      .replace(/÷/g, "/");
     if (/[\d)][+\-*/.]+[\d(]/.test(sanitized)) {
       const result = eval(sanitized);
       preview.textContent = !isNaN(result) ? `= ${result}` : "";
@@ -60,7 +65,9 @@ function showPreview() {
 // ✅ Calculate safely
 function calculate() {
   try {
-    const result = eval(currentInput.replace(/x/g, "*").replace(/×/g, "*"));
+    const result = eval(
+      currentInput.replace(/x/g, "*").replace(/×/g, "*").replace(/÷/g, "/")
+    );
     currentInput = result.toString();
   } catch {
     currentInput = "Error";
