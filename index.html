@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calculator App</title>
+  <title>Smart Calculator</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap" rel="stylesheet" />
 </head>
@@ -24,7 +24,10 @@
       </div>
     </header>
 
-    <div class="screen" id="screen">0</div>
+    <div class="display">
+      <div class="screen" id="screen">0</div>
+      <div class="result-preview" id="result-preview"></div>
+    </div>
 
     <div class="keypad">
       <button class="btn" data-value="7">7</button>
@@ -50,12 +53,12 @@
       <button class="btn btn-reset" data-action="reset">RESET</button>
       <button class="btn btn-equals" data-action="equals">=</button>
     </div>
-     <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a> <br>
-    Coded by <a href="https://crowther-webdev.netlify.app">CROWTHER</a>
+
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a> <br>
+      Coded by <a href="https://crowther-webdev.netlify.app" target="_blank">CROWTHER</a>
+    </div>
   </div>
-  </div>
-  
 
   <script src="script.js"></script>
 </body>
